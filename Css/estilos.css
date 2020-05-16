@@ -37,11 +37,13 @@ header{
   justify-content: center;
   align-items: center;
 }
+
 .menu{
   background-color:rgb(19, 5, 102);
   position: fixed;
   width: 100vw;
   top: 0;
+  z-index: 1;
 }
 .menu ul {
   display:flex;
@@ -53,8 +55,13 @@ header{
 .menu a{
  display: block;
  padding: 10px 20px;
- 
-}
+ transition: background-color 1s,color 1s;
+ }
+ .menu a:hover{
+   background-color: teal;
+   color: white;
+
+ }
 a{
   color:teal;
   text-decoration:none;
@@ -63,6 +70,19 @@ a:hover{
   text-decoration:underline; 
 }
 
+.titulo{
+  transform: scale(0.2) translateY(50vh) ;
+  opacity: 0;
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo{
+  
+100%{
+  transform: scale(1) translateY(0) ;
+  opacity: 1;
+ }
+}
 .site-subtitle,
 .site-title {
   color: whitesmoke;
@@ -72,6 +92,7 @@ a:hover{
   
   font-size:4em;
   font-family: 'Mr De Haviland', cursive;
+  
 }
 
 .site-subtitle{
@@ -79,12 +100,17 @@ a:hover{
   font-style: italic;
   font-family: 'VT323', monospace;
   line-height: 1.8em;
+  
+  
 }
+.contato,
 .portfolio{
   padding: 2em;
-  height: 100vh;
+ min-height: 100vh;
+ 
 }
 
+.contato h2,
 .portfolio h2{
   font-family: 'VT323', monospace;
   color:whitesmoke;
@@ -99,6 +125,8 @@ a:hover{
 @media(min-width:560px){
   .portfolio .grid{
     grid-template-columns: 240px 240px;
+    
+  
   }
 }
 @media(min-width:880px){
@@ -107,10 +135,14 @@ a:hover{
     align-content: center;
     justify-content: center;
     height: calc(100vh - 48px - 8em);
+    
   }
-}
+} 
+
+  
+
 .portfolio figure{
-  color: aliceblue;
+  color: whitesmoke;
   text-align: center;
 }
 
@@ -120,6 +152,11 @@ a:hover{
   object-fit:cover ;
   object-position: left bottom;
   border-radius:5px ;
+  transition: transform 500ms;
+ 
+}
+.img-portfolio:hover{
+   transform: scale(1.2) rotate(-2deg);
 }
 
 @media (min-width:1200px){
@@ -127,4 +164,19 @@ a:hover{
     height: auto;
     width: 100%;
   }
+}
+.contato .icons{
+  text-align: center;
+  
+  
+}
+.contato a {
+  color: whitesmoke;
+  font-size: 5em;
+  transition: text-shadow 1s;
+}
+.contato a:active,
+.contato a:hover{
+  text-decoration:none;
+  text-shadow: 0px 1px 10px silver;
 }
